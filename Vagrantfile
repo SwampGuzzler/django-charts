@@ -23,8 +23,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Provision the development environment using a shell script
   # Skip provisioning if 'khanaas-django' is the box in use, as it has the
   # provisioning actions built into the base image.
-  if config.vm.box != "khanaas-django"
-      config.vm.provision "shell", path: "provision/provision.sh", :args => "khanaas"
+  if config.vm.box != "khanaas-luke"
+      config.vm.provision "shell", path: "provision/provision.sh", :args => "luke"
   end
 
   # Share an additional folder to the guest VM. The first argument is
