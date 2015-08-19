@@ -15,8 +15,16 @@ PGSQL_VERSION=9.3
 apt-get update -y
 # Python dev packages
 apt-get install -y build-essential python python-dev python-pip python-virtualenv
+
+#sudo apt-get install python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose --> whole stack, may need nose and ipython
+
+apt-get install python-numpy python-scipy python-matplotlib python-pandas 
+pip install seaborn
+
 apt-get install -y git
 apt-get install -y vim-python-jedi # vim syntax highlighting, autocompletion
+
+
 
 if ! command -v workon; then
     pip install virtualenvwrapper
