@@ -14,11 +14,13 @@ PGSQL_VERSION=9.3
 # Install essential packages from Apt
 apt-get update -y
 # Python dev packages
-apt-get install -y build-essential python python-dev python-pip python-virtualenv
+apt-get install -y build-essential python python-dev python-pip python-virtualenv python-django
+
+
 
 #sudo apt-get install python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose --> whole stack, may need nose and ipython
 
-apt-get install python-numpy python-scipy python-matplotlib python-pandas 
+apt-get install -y python-numpy python-scipy python-matplotlib python-pandas 
 pip install seaborn
 
 apt-get install -y git
