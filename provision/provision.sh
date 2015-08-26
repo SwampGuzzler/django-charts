@@ -22,6 +22,7 @@ apt-get install -y build-essential python python-dev python-pip python-virtualen
 
 apt-get install -y python-numpy python-scipy python-matplotlib python-pandas 
 pip install seaborn
+pip install mpld3
 
 apt-get install -y git
 apt-get install -y vim-python-jedi # vim syntax highlighting, autocompletion
