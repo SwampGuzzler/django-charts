@@ -2,6 +2,8 @@
 from django.shortcuts import get_object_or_404
 from api.models import Chart
 
+import matplotlib.pyplot as plt, mpld3
+
 # Put the imports at the top of views.py
 from django.http import HttpResponseRedirect
 from api.forms import ChartForm
@@ -21,6 +23,35 @@ def spock_view(request, input_phrase):
         'img_url': 'catPic.png',
         'phrase': input_phrase + (last_char * 5)
     }
+
+def chart_template(request, disease_id, state_id):
+
+    return HttpResponse(request_url)
+
+
+    # 1. Get Data back via requests or HttpResponse or get_object_or_404
+    # 2. Arrange data, create pandas dataframe, get player picture
+    # 3. Draw Court
+    # 4. Create shotchart (via seaborn/mpld3/matplotlib.pyplot)
+    # 5. Combine court, pic, chart and show() it
+    # 6. mpld3 toHtml the fig, pass that into chart_template somehow
+
+    # 6b. We could also do mpld3.save_html(figure, newFile.html)
+
+    # plt.plot([3,1,4,1,5], 'ks-', mec='w', mew=5, ms=20)
+    # html_chart = mpld3.fig_to_html(fig)
+    # mpld3.show()
+
+    season_data = get_object_or_404(Chart)
+    #season_data = get_object_or_404(Chart, relevantdisease__pk=disease_id)
+
+
+    context = {
+        'name' : season_data.playerName, # (or whatever the name property is called)
+        'img_url': season_data.img_url,
+        'chart_type': 'hex' # necessary?
+    }
+    return render(request, "chart_template.html", context)
 
 # def get_chart_view(request, input_chart, input_phrase):
 #     # Get the chart from the database by 'name' ('__iexact' means case insensitive)
