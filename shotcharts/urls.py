@@ -18,5 +18,9 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    # url(r'^', include('api.urls', namespace='api')),
+    url(r'^hello$', 'hello_world_view'),
     url(r'^create$', 'create_chart_view'),
+    url(r'^chart$', 'chart_template'),
+    url(r'^plot$', 'create'),
 ]

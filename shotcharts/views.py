@@ -9,9 +9,10 @@ from django.http import HttpResponseRedirect
 from api.forms import ChartForm
 
 from django.shortcuts import render
+from django.http import HttpResponse
 
 # Create your views here.
-from django.http import HttpResponse # Put this at the top of the file
+
 def hello_world_view(request):
    return HttpResponse("Hello, world!")
 
@@ -53,6 +54,14 @@ def chart_template(request, disease_id, state_id):
     }
     return render(request, "chart_template.html", context)
 
+def chart_template_direct(request, disease_id, state_id):
+
+    return HttpResponse(request_url)
+
+
+    js_data = json.dumps(mpld3.fig_to_dict(fig))
+    return render_to_response('direct_plot.html', {"my_data": js_data})
+
 # def get_chart_view(request, input_chart, input_phrase):
 #     # Get the chart from the database by 'name' ('__iexact' means case insensitive)
 #     # If a match is not found, return a 404 page
@@ -77,3 +86,4 @@ def create_chart_view(request):
 
     # Render the 'create.html' template page with the ChartForm instance
     return render(request, 'api/create.html', {'form': form})
+
